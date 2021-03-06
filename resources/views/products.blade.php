@@ -42,7 +42,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     
-                                    <form  class="parsley-style-1" id="createٍProduct" name="selectForm2" novalidate="">
+                                    <form  class="parsley-style-1"  method="POST" action="prostore" name="selectForm2" novalidate="">
                                         @csrf
 
                                         <div class="row">
@@ -99,16 +99,17 @@
                                                     </div> 
                                                 </div>
 
+
+
                                                 {{--  ADRESS   --}}
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">الصنف</label>
-                                                        <select name="category_id" class="form-control">
-                                                            <option value="">اختار الصنف</option>
-                                                           
-                                                                <option value="">
-                                                                   
-                                                                </option>
+                                                        <label for="">المورد</label>
+                                                        <select name="sup_id" class="form-control">
+                                                        <option>اختار المورد</option>
+                                                        @foreach($suppliers as $cat)
+                                                           <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                         @endforeach  
                                                            
                                                         </select>                                                    
                                                         <span class="text-danger" id="adress_error"></span>
@@ -119,12 +120,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">المورد</label>
-                                                        <select name="sup_id" class="form-control">
-                                                            <option value="">اختار المورد</option>
+                                                    
                                                            
-                                                                <option value="">
-                                                                   
-                                                                </option>
+                                                       <select name="category_id" class="form-control">
+                                                        <option>اختار الصنف</option>
+                                                        @foreach($categories as $cat)
+                                                           <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                                         @endforeach       
                                                            
                                                         </select>                                                     
                                                         <span class="text-danger" id="product_price_error"></span>
@@ -187,16 +189,31 @@
                                         <thead>
                                             <tr>
                                                 <th class="wd-15p border-bottom-0"> رقم</th>
-                                                <th class="wd-15p border-bottom-0">اسم المدينة</th>
-                                                <th class="wd-15p border-bottom-0">اسم المحافظة التابعة لها</th>
-                                                <th class="wd-10p border-bottom-0">الاجرائات</th>
-                                                
+                                                <th class="wd-15p border-bottom-0">اسم المنتج</th>
+                                                <th class="wd-15p border-bottom-0">سعر الشراء</th>
+                                                <th class="wd-10p border-bottom-0">سعر البيع</th>
+                                                <th class="wd-15p border-bottom-0">الكمية</th>
+                                                <th class="wd-15p border-bottom-0">اجمالي سعر الشراء</th>
+                                                <th class="wd-10p border-bottom-0">اجمالي سعر البيع</th>
+                                                <th class="wd-15p border-bottom-0">الصنف</th>
+                                                <th class="wd-10p border-bottom-0">المورد</th>
+                                                <th class="wd-15p border-bottom-0">تاريخ الاضافة</th>                                              
                                             </tr>
                                         </thead>
                                         <tbody>
                                               
                                               @foreach($data as $item)
+                                              <td>{{$item->barcode  }}</td>
                                               <td>{{$item->name}}</td>
+                                              <td>{{$item->buy_price }}</td>
+                                              <td>{{$item->sell_price   }}</td>
+                                              <td>{{$item->qty}}</td>
+                                              <td>{{$item->total_buy_price}}</td>
+                                              <td>{{$item-> total_sell_price}}</td>
+                                              <td>{{$item->Category->title}}</td>
+                                              <td>{{$item->Supplier->name}}</td>
+                                              <td>{{$item->created_at}}</td>
+
 
                                                     <td>
                                                         <div class="btn-icon-list">

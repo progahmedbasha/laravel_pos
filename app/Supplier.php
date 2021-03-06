@@ -8,4 +8,10 @@ class Supplier extends Model
 {
     protected $fillable = ['id', 'name', 'phone', 'address','about','mail'];
     protected $table = "suppliers";
+
+
+    public function suppliers()
+    {
+      return $this->hasMany('App\Product');
+    }
 }
