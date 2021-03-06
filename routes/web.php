@@ -23,7 +23,7 @@ Route::get('products', 'ProductsController@products_show');
 
 
 Route::post('prostore', 'ProductsController@products_store');
-// Route::get('products/{data}/delete', 'ProductsController@delete');
+Route::get('products/{data}/delete', 'ProductsController@delete');
 
 // Route::get('products/{data}/edite', 'ProductsController@edite');
 // Route::post('products/{data}/update', 'ProductsController@update');

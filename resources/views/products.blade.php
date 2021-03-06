@@ -214,14 +214,13 @@
                                               <td>{{$item->Supplier->name}}</td>
                                               <td>{{$item->created_at}}</td>
 
-
                                                     <td>
                                                         <div class="btn-icon-list">
                                                             <a href="">
                                                                 <button class="btn btn-indigo btn-icon"><i class="fa fa-edit"></i></button>
                                                             </a>&nbsp;
-                                                            <a href="" class="makeDeleteCity" city_id=" ">
-                                                                <button class="btn btn-primary btn-icon"><i class="fa fa-trash"></i></button>
+                                                            <a class="makeDeleteCity" href="products/{{$item->id}}/delete" city_id=" ">
+                                                                <button class="btn btn-primary btn-icon" ><i class="fa fa-trash"></i></button>
                                                             </a>
                                                         </div>
                                                     </td>
