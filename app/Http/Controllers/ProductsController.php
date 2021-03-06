@@ -25,7 +25,7 @@ class ProductsController extends Controller
         $product->buy_price=$request->buy_price;
         $product->sell_price =$request->sell_price;
         $product->qty=$request->qty;
-        $product->total_buy_price =$request->sell_price*$request->qty;
+        $product->total_buy_price =$request->buy_price*$request->qty;
         $product->total_sell_price=$request->sell_price*$request->qty;
         $product->category_id =$request->category_id;
         $product->sup_id=$request->sup_id;
