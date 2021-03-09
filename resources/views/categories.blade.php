@@ -53,8 +53,24 @@
                                                         <label for="">اسم الصنف</label>
                                                          <input type="text" name="title" class="form-control" placeholder="ادخل اسم الصنف">
 
-                                                    
-                                                        <span class="text-danger" id="supplier_id_error"></span>
+<!--                                                  <input type="text" name="parent" class="form-control" placeholder="ادخل اسم الصنف">
+ -->
+
+ <p onclick="myFunction()">* اضغط لاضافة مجموعة اصناف</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "hidden");
+  document.body.appendChild(x);
+
+  document.getElementById("demo").innerHTML = "<input  name='parent' class='form-control' placeholder='ادخل اسم الصنف'>";
+}
+</script>
+
+                                           <span class="text-danger" id="supplier_id_error"></span>
                                                     </div>
                                                 </div>
 
@@ -122,7 +138,7 @@
                                         <tbody>
                                               
                                               @foreach($data as $item)
-                                              <td>{{$item->title}}</td>
+                                              <td>{{$item->parent}}\{{$item->title}}</td>
 
 
                                                     <td>
