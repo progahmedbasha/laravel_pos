@@ -17,7 +17,7 @@ class Product extends Model
 
     public function supplier()
     {
-       return $this->hasMany('App\Supplier', 'sup_id');
+       return $this->belongsTo('App\Supplier', 'sup_id');
     }
 
 

@@ -52,10 +52,15 @@
                                                     <div class="form-group">
                                                         <label for="">اسم الصنف</label>
                                                          <input type="text" name="title" class="form-control" placeholder="ادخل اسم الصنف">
-
-<!--                                                  <input type="text" name="parent" class="form-control" placeholder="ادخل اسم الصنف">
- -->
-
+                                                       
+<!--                                                         <label for="">المورد</label>
+                                                        <select name="parent_id" class="form-control">
+                                                        <option>اختار المورد</option>
+                                                        @foreach($data as $cat)
+                                                           <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                                         @endforeach  
+                                                           
+                                                        </select> -->  
  <p onclick="myFunction()">* اضغط لاضافة مجموعة اصناف</p>
 
 <p id="demo"></p>
@@ -66,7 +71,8 @@ function myFunction() {
   x.setAttribute("type", "hidden");
   document.body.appendChild(x);
 
-  document.getElementById("demo").innerHTML = "<input  name='parent' class='form-control' placeholder='ادخل اسم الصنف'>";
+
+  document.getElementById("demo").innerHTML = "<select  name='parent_id' class='form-control' placeholder='ادخل اسم الصنف'>@foreach($data as $cat)<option value='{{$cat->id}}'>{{$cat->title}}</option>@endforeach</select>";
 }
 </script>
 
@@ -138,7 +144,7 @@ function myFunction() {
                                         <tbody>
                                               
                                               @foreach($data as $item)
-                                              <td>{{$item->parent}}\{{$item->title}}</td>
+                                              <td>{{$item->parent_id}}\{{$item->title}}</td>
 
 
                                                     <td>
