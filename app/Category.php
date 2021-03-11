@@ -16,10 +16,7 @@ class Category extends Model
     }
 
 
-    public function ctegories()
-    {
-      return $this->hasMany('App\Category','parent_id');
-    }
+
 
 
 
