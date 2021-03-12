@@ -128,9 +128,7 @@ function myFunction() {
                                 </button>
                             </div>
                         {{--  END GET FLASH MESSAGES   --}}
-
-                          
-
+  
                             <div class="table-responsive">
                        
                                     <table class="table text-md-nowrap" id="example1">
@@ -144,9 +142,12 @@ function myFunction() {
                                         <tbody>
                                               
                                               @foreach($data as $item)
-                                              <td>{{$item->parent_id}}\{{$item->title}}</td>
 
-
+                                              @if($item->parent !=null)
+                                              <td>{{$item->parent->title}}\{{$item->title}}</td>
+                                                @else
+                                             <td>{{$item->title}}</td>
+                                             @endif
                                                     <td>
                                                         <div class="btn-icon-list">
                                                             <a href="">

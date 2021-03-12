@@ -8,8 +8,10 @@ class CategoriesController extends Controller
 {
     public function categories_show()
     {
-        
-        $data = Category::all();
+           $data = Category::with('parent')->get();
+
+
+     
         return view('categories', compact('data'));
 
     }
