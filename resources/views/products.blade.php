@@ -187,8 +187,8 @@
                                                 <th class="wd-15p border-bottom-0">اجمالي سعر الشراء</th>
                                                 <th class="wd-10p border-bottom-0">اجمالي سعر البيع</th>
                                                 <th class="wd-15p border-bottom-0">الصنف</th>
-                                                <th class="wd-10p border-bottom-0">المورد</th>
-                                                <th class="wd-15p border-bottom-0">تاريخ الاضافة</th>                                              
+                                                <th class="wd-15p border-bottom-0">تاريخ الاضافة</th>
+                                                <th>---</th>                                              
                                             </tr>
                                         </thead>
                                         <tbody>
