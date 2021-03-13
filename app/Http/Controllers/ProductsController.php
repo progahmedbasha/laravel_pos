@@ -12,7 +12,7 @@ class ProductsController extends Controller
     {
     	
     	$data = Product::all();
-        $categories = Category::all();
+        $categories = Category::with('parent')->get();
         $suppliers = Supplier::all();
     	return view('products', compact('data','categories','suppliers'));
 
@@ -28,7 +28,7 @@ class ProductsController extends Controller
         $product->total_buy_price =$request->buy_price*$request->qty;
         $product->total_sell_price=$request->sell_price*$request->qty;
         $product->category_id =$request->category_id;
-        $product->sup_id=$request->sup_id;
+        
 
 
         $product->save();
@@ -41,8 +41,8 @@ class ProductsController extends Controller
     }
         public function edite(Product $data)
     {
-           
-            return view('edite_product', compact('data'));
+           $categories = Category::all();
+            return view('edite_product', compact('data','categories'));
     }
     
         public function update(Request $request ,Product $data)

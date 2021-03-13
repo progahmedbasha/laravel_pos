@@ -27,3 +27,4 @@ class CategoriesController extends Controller
         return back();
     }
 }
+//${{ money_format($product->price, 2) }}

@@ -20,13 +20,35 @@
   <fieldset>
 
     <legend>Personalia:</legend>
+        <label for="fname">barcode:</label><br>
+    <input type="text" id="fname" value="{{$data->barcode}}" name="barcode" ><br>
     <label for="fname">product name:</label><br>
     <input type="text" id="fname" value="{{$data->name}}" name="name" ><br>
+    <label for="fname">buy price:</label><br>
+    <input type="text" id="fname" value="{{$data->buy_price}}" name="buy_price" ><br>
+    <label for="fname">sell price:</label><br>
+    <input type="text" id="fname" value="{{$data->sell_price}}" name="sell_price" ><br>
+
     <label for="lname">qty:</label><br>
    <input type="text" id="fname"  value="{{$data->qty}}" name="qty" ><br>
-    <label for="lname">description:</label><br>
-   <input type="text" id="fname"  value="{{$data->description}}" name="description" ><br>
-  
+
+                                                       <label for="">الصنف</label>
+                                                    
+                                                           
+                                                       <select name="category_id" class="form-control">
+                                                        <option>اختار الصنف</option>
+                                                        @foreach($categories as $item)
+                                                          @if($item->parent !=null)
+                                                           <option value="{{$item->id}}">{{$item->parent->title}}\{{$item->title}}</option>
+                                                         @else
+                                                          <option value="{{$item->id}}">{{$item->title}}</option>
+                                                          @endif
+
+                                                         @endforeach       
+                                                           
+                                                        </select>                                                     
+                                                        <span class="text-danger" id="product_price_error"></span>
+                                          
 
 
   <button type="submit">add</button>

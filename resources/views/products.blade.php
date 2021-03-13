@@ -101,20 +101,6 @@
 
 
 
-                                                {{--  ADRESS   --}}
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">المورد</label>
-                                                        <select name="sup_id" class="form-control">
-                                                        <option>اختار المورد</option>
-                                                        @foreach($suppliers as $cat)
-                                                           <option value="{{$cat->id}}">{{$cat->name}}</option>
-                                                         @endforeach  
-                                                           
-                                                        </select>                                                    
-                                                        <span class="text-danger" id="adress_error"></span>
-                                                    </div>
-                                                </div>
 
                                                 {{--  PRODUCT PRICE   --}}
                                                 <div class="col-md-6">
@@ -124,8 +110,13 @@
                                                            
                                                        <select name="category_id" class="form-control">
                                                         <option>اختار الصنف</option>
-                                                        @foreach($categories as $cat)
-                                                           <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                                        @foreach($categories as $item)
+                                                          @if($item->parent !=null)
+                                                           <option value="{{$item->id}}">{{$item->parent->title}}\{{$item->title}}</option>
+                                                         @else
+                                                          <option value="{{$item->id}}">{{$item->title}}</option>
+                                                          @endif
+
                                                          @endforeach       
                                                            
                                                         </select>                                                     
@@ -134,7 +125,7 @@
                                                 </div>
 
 
-
+                                     
 
                                             
                                         </div>
@@ -210,13 +201,18 @@
                                               <td>{{$item->qty}}</td>
                                               <td>{{$item->total_buy_price}}</td>
                                               <td>{{$item-> total_sell_price}}</td>
-                                              <td>{{$item->Category->title}}</td>
-                                              <td>{{$item->Supplier->name}}</td>
+
+                                              @if($item->Category->parent_id !=null)
+                                               <td>{{$item->Category->parent->title}}\{{$item->Category->title}}</td>
+                                               @else
+                                             <td>{{$item->Category->title}}</td>
+                                               @endif
+
                                               <td>{{$item->created_at}}</td>
 
                                                     <td>
                                                         <div class="btn-icon-list">
-                                                            <a href="">
+                                                            <a href="products/{{$item->id}}/edite">
                                                                 <button class="btn btn-indigo btn-icon"><i class="fa fa-edit"></i></button>
                                                             </a>&nbsp;
                                                             <a class="makeDeleteCity" href="products/{{$item->id}}/delete" city_id=" ">
