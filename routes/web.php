@@ -32,3 +32,5 @@ Route::get('suppliers', 'SuppliersController@suppliers_show');
 Route::post('supp_store', 'SuppliersController@suppliers_store');
 Route::get('categories', 'CategoriesController@categories_show');
 Route::post('cat_store', 'CategoriesController@categories_store');
+Route::get('categories/{data}/edite', 'CategoriesController@edite');
+Route::post('categories/{data}/update', 'CategoriesController@update');

@@ -26,5 +26,19 @@ class CategoriesController extends Controller
         $category->save();
         return back();
     }
+
+    public function edite(Category $data)
+    {
+           
+            return view('categories_edite', compact('data'));
+    }
+    public function update(Request $request ,Category $data)
+    {
+            $data ->update($request->all());
+           return redirect('categories');
+    } 
 }
+
+
+
 //${{ money_format($product->price, 2) }}
