@@ -90,7 +90,7 @@ function myFunction() {
                                         
                                     
                                         <div class="mg-t-30">
-                                            <button class="btn btn-main-primary pd-x-20"  type="submit">اضافة مورد جديد </button>
+                                            <button class="btn btn-main-primary pd-x-20"  type="submit">اضافة صنف جديد </button>
                                         </div>
                                     </form>
                                 </div>
